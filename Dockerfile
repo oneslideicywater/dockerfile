@@ -1,1 +1,1 @@
-FROM quay.io/k8scsi/csi-attacher:v2.1.0
+FROM k8s.gcr.io/ingress-nginx/controller:v0.45.0
