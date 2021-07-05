@@ -1,1 +1,1 @@
-FROM quay.io/coreos/flannel:v0.14.0-rc1
+FROM k8s.gcr.io/kube-state-metrics/kube-state-metrics:v2.1.0
