@@ -28,4 +28,4 @@ jobs:
         
     - name: Publish Image to Docker Hub
       run: |
-        docker push ${{ IMAGE_NAME }}/kube-state-metrics-v2.1.1
+        docker push ${{ env.IMAGE_NAME }}/kube-state-metrics-v2.1.1
