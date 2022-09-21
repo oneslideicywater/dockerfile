@@ -7,8 +7,8 @@ on:
     branches: [ "master" ]
 env:
   IMAGE_NAME: oneslide/k8s.gcr.io
-  ORIGIN_TAG: k8s.gcr.io/kube-state-metrics/kube-state-metrics:v2.1.1
-  TAG_SUFFIX: kube-state-metrics-v2.1.1
+  ORIGIN_TAG: k8s.gcr.io/prometheus-adapter/prometheus-adapter:v0.9.0
+  TAG_SUFFIX: prometheus-adapter-v0.9.0
 jobs:
 
   build:
