@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "master" ]
 env:
-  IMAGE_NAME: oneslide/devops:flask
+  IMAGE_NAME: oneslide/k8s.gcr.io
 jobs:
 
   build:
@@ -28,4 +28,4 @@ jobs:
         
     - name: Publish Image to Docker Hub
       run: |
-        docker push k8s.gcr.io/kube-state-metrics/kube-state-metrics:v2.1.1
+        docker push ${{ IMAGE_NAME }}/kube-state-metrics-v2.1.1
