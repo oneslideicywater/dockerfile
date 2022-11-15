@@ -8,7 +8,7 @@ on:
 env:
   IMAGE_NAME: oneslide/k8s.gcr.io
   ORIGIN_TAG: registry.opensource.zalan.do/acid/postgres-operator:v1.8.2
-  TAG_SUFFIX: zalando-postgres-operator:v1.8.2
+  TAG_SUFFIX: zalando-postgres-operator-v1.8.2
 jobs:
 
   build:
