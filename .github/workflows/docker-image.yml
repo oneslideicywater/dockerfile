@@ -7,8 +7,8 @@ on:
     branches: [ "master" ]
 env:
   IMAGE_NAME: oneslide/k8s.gcr.io
-  ORIGIN_TAG: k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
-  TAG_SUFFIX: nfs-subdir-external-provisioner-v4.0.2
+  ORIGIN_TAG: registry.opensource.zalan.do/acid/postgres-operator:v1.8.2
+  TAG_SUFFIX: zalando-postgres-operator:v1.8.2
 jobs:
 
   build:
