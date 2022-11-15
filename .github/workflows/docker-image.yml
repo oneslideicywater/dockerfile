@@ -7,8 +7,8 @@ on:
     branches: [ "master" ]
 env:
   IMAGE_NAME: oneslide/k8s.gcr.io
-  ORIGIN_TAG: registry.opensource.zalan.do/acid/postgres-operator:v1.8.2
-  TAG_SUFFIX: zalando-postgres-operator-v1.8.2
+  ORIGIN_TAG: registry.opensource.zalan.do/acid/spilo-14:2.1-p7
+  TAG_SUFFIX: zalando-spilo-14-2.1-p7
 jobs:
 
   build:
