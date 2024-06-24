@@ -1,1 +1,1 @@
-FROM gcr.io/cadvisor/cadvisor:latest
+FROM mongo:6.0.15
