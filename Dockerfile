@@ -1,1 +1,1 @@
-FROM mongo:6.0.15
+FROM nacos/nacos-server:v2.2.0-slim
