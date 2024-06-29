@@ -59,7 +59,9 @@ jobs:
         outputs: type=local,dest=test.tar
     - name: checkfile 
       run: |
-        ls
+        ls -al
+        du -h test.tar
+        chmod 777 test.tar
     - name: Archive production artifacts
       uses: actions/upload-artifact@v4
       with:
