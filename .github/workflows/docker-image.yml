@@ -94,6 +94,7 @@ jobs:
           install: |
             case "${{ matrix.distro }}" in
               ubuntu*|jessie|stretch|buster|bullseye)
+                apt install -y docker-ce
                 docker pull nacos/nacos-server:v2.2.0-slim
                 docker save nacos > nacos-2.2.0.tar
                 ;;
