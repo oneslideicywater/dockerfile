@@ -55,18 +55,19 @@ jobs:
       with:
         # platforms: linux/amd64,linux/arm64
         platforms: linux/arm64
-        tags: test:v1
+        tags: nacos:v2.2.0
         outputs: type=tar,dest=test.tar
     - name: checkfile 
       run: |
         ls -al
         du -h test.tar
         chmod 777 test.tar
+        tar czvf test.tar.gz test.tar
     - name: Archive production artifacts
       uses: actions/upload-artifact@v4
       with:
         name: images
         path: |
-          test.tar
+          test.tar.gz
 
 
