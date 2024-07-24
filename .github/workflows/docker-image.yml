@@ -55,14 +55,14 @@ jobs:
       with:
         # platforms: linux/amd64,linux/arm64
         platforms: linux/arm64
-        tags: nacos/nacos-server:v2.4.0.1
+        tags: nacos/nacos-server:v2.4.0.1-arm64
         load: true
         outputs: type=tar,dest=test.tar
     - name: checkfile 
       run: |
-        docker save nacos/nacos-server:v2.4.0.1 > test.tar
-        docker load -i test.tar
-        tar czvf nacos-v2.4.0.1-arm64.tar.gz test.tar
+        docker save nacos/nacos-server:v2.4.0.1-arm64 > nacos-server-v2.4.0.1-arm64.tar
+        docker load -i nacos-server-v2.4.0.1-arm64.tar
+        tar czvf nacos-v2.4.0.1-arm64.tar.gz nacos-server-v2.4.0.1-arm64.tar
     - name: Archive production artifacts
       uses: actions/upload-artifact@v4
       with:
