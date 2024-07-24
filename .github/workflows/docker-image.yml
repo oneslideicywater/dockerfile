@@ -39,11 +39,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    # - name: Pull images
-    #   run: |
-    #      docker pull mongo:6.0.15
-    #      docker save mongo:6.0.15 > mongo.tar
-    #      tar czvf mongo.tar.gz mongo.tar
+    - name: Pull images
+      run: |
+          docker pull nacos/nacos-server:v2.4.0.1
+          docker save nacos/nacos-server:v2.4.0.1 > nacos-v2.4.0.tar
+          tar czvf nacos-v2.4.0.1-amd64.tar.gz nacos-v2.4.0.tar
          
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
@@ -55,19 +55,20 @@ jobs:
       with:
         # platforms: linux/amd64,linux/arm64
         platforms: linux/arm64
-        tags: nacos:v2.2.0
+        tags: nacos/nacos-server:v2.4.0.1
         load: true
         outputs: type=tar,dest=test.tar
     - name: checkfile 
       run: |
-        docker save nacos:v2.2.0 > test.tar
+        docker save nacos/nacos-server:v2.4.0.1 > test.tar
         docker load -i test.tar
-        tar czvf test.tar.gz test.tar
+        tar czvf nacos-v2.4.0.1-arm64.tar.gz test.tar
     - name: Archive production artifacts
       uses: actions/upload-artifact@v4
       with:
         name: images
         path: |
-          test.tar.gz
+          nacos-v2.4.0.1-amd64.tar.gz
+          nacos-v2.4.0.1-arm64.tar.gz
 
 
