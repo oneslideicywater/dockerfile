@@ -69,6 +69,5 @@ jobs:
         name: images
         path: |
           nacos-v2.4.0.1-amd64.tar.gz
-          nacos-v2.4.0.1-arm64.tar.gz
 
 
