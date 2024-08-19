@@ -60,16 +60,15 @@ jobs:
         outputs: type=tar,dest=test.tar
     - name: checkfile 
       run: |
-        # docker save nacos/nacos-server:v2.4.0.1-arm64 > nacos-server-v2.4.0.1-arm64.tar
+        docker save nacos-mysql:8.0.31-arm64 > nacos-mysql-8.0.31-arm64.tar
         # docker load -i nacos-server-v2.4.0.1-arm64.tar
-        # tar czvf nacos-v2.4.0.1-arm64.tar.gz nacos-server-v2.4.0.1-arm64.tar
-        docker load -i test.tar
+        tar czvf nacos-mysql-8.0.31-arm64.tar.gz nacos-mysql-8.0.31-arm64.tar
         echo yes
     - name: Archive production artifacts
       uses: actions/upload-artifact@v4
       with:
         name: images
         path: |
-          kafka-v3.8.0-amd64.tar.gz
+          nacos-mysql-8.0.31-arm64.tar.gz
 
 
