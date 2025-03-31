@@ -41,34 +41,34 @@ jobs:
     - uses: actions/checkout@v3
     - name: Pull images
       run: |
-          docker pull bitnami/kafka:3.8.0
-          docker save bitnami/kafka:3.8.0 > kafka-v3.8.0.tar
-          tar czvf kafka-v3.8.0-amd64.tar.gz kafka-v3.8.0.tar
+          docker pull --platform linux/arm64 kubesphere/ks-apiserver:v4.1.2
+          docker save kubesphere/ks-apiserver:v4.1.2 > kubesphere-ks-apiserver-v4.1.2.tar
+          tar czvf kubesphere-ks-apiserver-v4.1.2.tar.gz kubesphere-ks-apiserver-v4.1.2.tar
          
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v3
+    # - name: Set up QEMU
+    #   uses: docker/setup-qemu-action@v3
     
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
-    - name: Build and push
-      uses: docker/build-push-action@v6
-      with:
-        # platforms: linux/amd64,linux/arm64
-        platforms: linux/arm64
-        tags: mongoclient:latest
-        load: true
-        outputs: type=tar,dest=test.tar
-    - name: checkfile 
-      run: |
-        docker save mongoclient:latest > mongoclient.tar
-        # docker load -i nacos-server-v2.4.0.1-arm64.tar
-        tar czvf mongoclient.tar.gz  mongoclient.tar
-        echo yes
+    # - name: Set up Docker Buildx
+    #   uses: docker/setup-buildx-action@v3
+    # - name: Build and push
+    #   uses: docker/build-push-action@v6
+    #   with:
+    #     # platforms: linux/amd64,linux/arm64
+    #     platforms: linux/arm64
+    #     tags: mongoclient:latest
+    #     load: true
+    #     outputs: type=tar,dest=test.tar
+    # - name: checkfile 
+    #   run: |
+    #     docker save mongoclient:latest > mongoclient.tar
+    #     # docker load -i nacos-server-v2.4.0.1-arm64.tar
+    #     tar czvf mongoclient.tar.gz  mongoclient.tar
+    #     echo yes
     - name: Archive production artifacts
       uses: actions/upload-artifact@v4
       with:
         name: images
         path: |
-          mongoclient.tar.gz
+          kubesphere-ks-apiserver-v4.1.2.tar.gz
 
 
