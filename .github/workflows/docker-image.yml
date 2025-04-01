@@ -41,13 +41,11 @@ jobs:
     - uses: actions/checkout@v3
     - name: Pull images
       run: |
-          docker pull --platform linux/arm64 docker.io/kubesphere/nginx-ingress-controller:v1.4.0
-          docker pull --platform linux/arm64 docker.io/kubesphere/gateway-apiserver:v1.0.2
-          docker pull --platform linux/arm64 docker.io/kubesphere/gateway-controller-manager:v1.0.2
-          docker pull --platform linux/arm64 docker.io/kubesphere/kubectl:v1.27.16
+          docker pull --platform linux/arm64 nginx:1.27.4
 
-          docker save docker.io/kubesphere/kubectl:v1.27.16 docker.io/kubesphere/gateway-controller-manager:v1.0.2 docker.io/kubesphere/gateway-apiserver:v1.0.2 docker.io/kubesphere/nginx-ingress-controller:v1.4.0 > gateway-v4.1.2.tar
-          tar czvf gateway-v4.1.2.tar.gz gateway-v4.1.2.tar
+
+          docker save nginx:1.27.4  > nginx-v1.27.4.tar
+          tar czvf nginx-v1.27.4.tar.gz nginx-v1.27.4.tar
          
     # - name: Set up QEMU
     #   uses: docker/setup-qemu-action@v3
@@ -73,6 +71,6 @@ jobs:
       with:
         name: images
         path: |
-          gateway-v4.1.2.tar.gz
+          nginx-v1.27.4.tar.gz
 
 
