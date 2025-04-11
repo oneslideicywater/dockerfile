@@ -42,12 +42,12 @@ jobs:
     - name: Pull images
       run: |
           # docker pull --platform linux/arm64  quay.io/prometheus/prometheus:v2.51.2
-          docker pull questdb/questdb:6.0.4
+          docker pull mongodb/mongodb-community-server:4.4-ubuntu2004
    
 
 
-          docker save questdb/questdb:6.0.4 > questdb-v6.0.4.tar
-          tar czvf questdb-v6.0.4.tar.gz questdb-v6.0.4.tar
+          docker save mongodb/mongodb-community-server:4.4-ubuntu2004 > mongodb-4.4.tar
+          tar czvf mongodb-4.4.tar.gz mongodb-4.4.tar
          
     # - name: Set up QEMU
     #   uses: docker/setup-qemu-action@v3
@@ -73,6 +73,6 @@ jobs:
       with:
         name: images
         path: |
-          questdb-v6.0.4.tar.gz
+          mongodb-4.4.tar.gz
 
 
