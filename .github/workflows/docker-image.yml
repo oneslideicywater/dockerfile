@@ -42,12 +42,14 @@ jobs:
     - name: Pull images
       run: |
           # docker pull --platform linux/arm64  quay.io/prometheus/prometheus:v2.51.2
-          docker pull mongodb/mongodb-community-server:4.4-ubuntu2004
+          docker pull prom/prometheus:latest
+          docker pull grafana/grafana-enterprise
+          docker pull prom/node-exporter:latest
    
 
 
-          docker save mongodb/mongodb-community-server:4.4-ubuntu2004 > mongodb-4.4.tar
-          tar czvf mongodb-4.4.tar.gz mongodb-4.4.tar
+          docker save prom/prometheus:latest  grafana/grafana-enterprise prom/node-exporter:latest > prom.tar
+          tar czvf prom.tar.gz prom.tar
          
     # - name: Set up QEMU
     #   uses: docker/setup-qemu-action@v3
@@ -73,6 +75,6 @@ jobs:
       with:
         name: images
         path: |
-          mongodb-4.4.tar.gz
+          prom.tar.gz
 
 
