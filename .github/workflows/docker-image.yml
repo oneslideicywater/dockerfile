@@ -41,15 +41,13 @@ jobs:
     - uses: actions/checkout@v3
     - name: Pull images
       run: |
-          # docker pull --platform linux/arm64  quay.io/prometheus/prometheus:v2.51.2
-          docker pull prom/prometheus:latest
-          docker pull grafana/grafana-enterprise
-          docker pull prom/node-exporter:latest
+          docker pull --platform linux/arm64  nginx
+
    
 
 
-          docker save prom/prometheus:latest  grafana/grafana-enterprise prom/node-exporter:latest > prom.tar
-          tar czvf prom.tar.gz prom.tar
+          docker save nginx > nginx.tar
+          tar czvf nginx.tar.gz nginx.tar
          
     # - name: Set up QEMU
     #   uses: docker/setup-qemu-action@v3
@@ -75,6 +73,6 @@ jobs:
       with:
         name: images
         path: |
-          prom.tar.gz
+          nginx.tar.gz
 
 
