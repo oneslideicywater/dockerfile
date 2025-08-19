@@ -43,7 +43,7 @@ jobs:
       run: |
           # docker pull minio/minio:RELEASE.2023-12-23T07-19-11Z
           # docker pull --platform linux/arm64  nginx
-          ocker pull --platform linux/amd64 nginx
+          docker pull --platform linux/amd64 nginx
 
    
 
