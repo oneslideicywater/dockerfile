@@ -43,13 +43,13 @@ jobs:
       run: |
           # docker pull minio/minio:RELEASE.2023-12-23T07-19-11Z
           # docker pull --platform linux/arm64  nginx
-          docker pull --platform linux/amd64 nginx
+          docker pull --platform linux/amd64 rancher/rancher:v2.13-7df61331f76183fabb4d9cd5dcd84afd3fcb9ab6-head
 
    
 
 
-          docker save nginx > nginx.tar
-          tar czvf  nginx.tar.gz nginx.tar
+          docker save rancher/rancher:v2.13-7df61331f76183fabb4d9cd5dcd84afd3fcb9ab6-head > rancher-v2.13-7df61331f76183fabb4d9cd5dcd84afd3fcb9ab6-head.tar
+          tar czvf  rancher.tar.gz rancher-v2.13-7df61331f76183fabb4d9cd5dcd84afd3fcb9ab6-head.tar
          
     # - name: Set up QEMU
     #   uses: docker/setup-qemu-action@v3
@@ -75,6 +75,6 @@ jobs:
       with:
         name: images
         path: |
-          nginx.tar.gz
+          rancher.tar.gz
 
 
