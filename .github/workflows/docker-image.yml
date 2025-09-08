@@ -48,7 +48,7 @@ jobs:
    
 
 
-          docker save -o > nacos-server:v2.4.3.tar nacos/nacos-server:v2.4.3
+          docker save -o nacos-server:v2.4.3.tar nacos/nacos-server:v2.4.3
           tar czvf  nacos-server:v2.4.3.tar.gz nacos-server:v2.4.3.tar
          
     # - name: Set up QEMU
