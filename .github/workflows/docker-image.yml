@@ -42,14 +42,14 @@ jobs:
     - name: Pull images
       run: |
           # docker pull minio/minio:RELEASE.2023-12-23T07-19-11Z
-          # docker pull --platform linux/arm64  nginx
-          docker pull --platform linux/amd64 rancher/rancher:v2.13-7df61331f76183fabb4d9cd5dcd84afd3fcb9ab6-head
+          # docker pull --platform linux/arm64 nacos/nacos-server:v2.4.3
+          docker pull --platform linux/amd64 nacos/nacos-server:v2.4.3
 
    
 
 
-          docker save rancher/rancher:v2.13-7df61331f76183fabb4d9cd5dcd84afd3fcb9ab6-head > rancher-v2.13-7df61331f76183fabb4d9cd5dcd84afd3fcb9ab6-head.tar
-          tar czvf  rancher.tar.gz rancher-v2.13-7df61331f76183fabb4d9cd5dcd84afd3fcb9ab6-head.tar
+          docker save nacos/nacos-server:v2.4.3 > nacos-server:v2.4.3.tar
+          tar czvf  nacos-server:v2.4.3.tar.gz nacos-server:v2.4.3.tar
          
     # - name: Set up QEMU
     #   uses: docker/setup-qemu-action@v3
@@ -75,6 +75,6 @@ jobs:
       with:
         name: images
         path: |
-          rancher.tar.gz
+          nacos-server:v2.4.3.tar.gz 
 
 
