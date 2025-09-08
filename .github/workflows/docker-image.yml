@@ -43,7 +43,7 @@ jobs:
       run: |
           # docker pull minio/minio:RELEASE.2023-12-23T07-19-11Z
           # docker pull --platform linux/arm64 nacos/nacos-server:v2.4.3
-          docker pull --platform linux/amd64 nacos/nacos-server:v2.4.3
+          docker pull --platform linux/arm64 nacos/nacos-server:v2.4.3
 
    
 
