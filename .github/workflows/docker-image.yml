@@ -42,13 +42,13 @@ jobs:
     - name: Pull images
       run: |
           # docker pull minio/minio:RELEASE.2023-12-23T07-19-11Z
-           docker pull --platform linux/arm64  quay.io/prometheus/prometheus:v2.36.1
+           docker pull --platform linux/arm64  jimmidyson/configmap-reload:v0.5.0
           # docker pull --platform linux/amd64 rancher/rancher:v2.12.1
 
    
 
 
-          docker save -o prom.tar quay.io/prometheus/prometheus:v2.36.1
+          docker save -o conifigmap-reload.tar jimmidyson/configmap-reload:v0.5.0
           
          
     # - name: Set up QEMU
@@ -75,5 +75,4 @@ jobs:
       with:
         name: images
         path: |
-          prom.tar
-
+          conifigmap-reload.tar 
