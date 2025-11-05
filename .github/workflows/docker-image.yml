@@ -43,11 +43,13 @@ jobs:
       run: |
           # docker pull minio/minio:RELEASE.2023-12-23T07-19-11Z
           # docker pull --platform linux/arm64  quay.io/prometheus/node-exporter:v1.3.1
-          docker pull --platform linux/amd64 openeuler/openeuler:22.03
+          #docker pull --platform linux/amd64 openeuler/openeuler:22.03
+          docker pull --platform linux/arm64 openeuler/openeuler:22.03
+
 
    
 
-          docker save -o openeuler-22.03.tar openeuler/openeuler:22.03
+          docker save -o openeuler-22.03-arm64.tar openeuler/openeuler:22.03
           
           
          
@@ -75,5 +77,5 @@ jobs:
       with:
         name: images
         path: |
-          openeuler-22.03.tar
+          openeuler-22.03-arm64.tar
   
