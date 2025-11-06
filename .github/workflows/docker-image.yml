@@ -43,14 +43,14 @@ jobs:
       run: |
           # docker pull minio/minio:RELEASE.2023-12-23T07-19-11Z
           # docker pull --platform linux/arm64  quay.io/prometheus/node-exporter:v1.3.1
-          docker pull --platform linux/amd64 quay.io/prometheus/prometheus:v2.46.0
-          docker pull --platform linux/amd64 quay.io/prometheus/alertmanager:v0.26.0
+          docker pull --platform linux/amd64 quay.io/prometheus-operator/prometheus-config-reloader:v0.67.1
+          
           # docker pull --platform linux/arm64 openeuler/openeuler:22.03
 
 
    
 
-          docker save -o monitor-kube-v1.26.12-patch.tar quay.io/prometheus/prometheus:v2.46.0 quay.io/prometheus/alertmanager:v0.26.0
+          docker save -o monitor-kube-v1.26.12-patch-v2.tar quay.io/prometheus-operator/prometheus-config-reloader:v0.67.1
           
           
          
@@ -78,5 +78,5 @@ jobs:
       with:
         name: images
         path: |
-          monitor-kube-v1.26.12-patch.tar
+          monitor-kube-v1.26.12-patch-v2.tar
   
