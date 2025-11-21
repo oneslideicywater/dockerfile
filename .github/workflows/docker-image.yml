@@ -44,13 +44,23 @@ jobs:
           # docker pull minio/minio:RELEASE.2023-12-23T07-19-11Z
           # docker pull --platform linux/arm64  quay.io/prometheus/node-exporter:v1.3.1
           # docker pull --platform linux/amd64 gcr.io/cadvisor/cadvisor:v0.45.0
-          
-          docker pull --platform linux/arm64 grafana/grafana:9.5.3 
-          docker pull --platform linux/arm64 jimmidyson/configmap-reload:v0.5.0
-          docker pull --platform linux/arm64 registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.9.2
-          docker pull --platform linux/arm64 registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.1
-          docker pull --platform linux/arm64 gcr.io/cadvisor/cadvisor:v0.45.0
-          docker save -o monoitor.tar grafana/grafana:9.5.3 jimmidyson/configmap-reload:v0.5.0 registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.9.2 registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.1 gcr.io/cadvisor/cadvisor:v0.45.0 
+          docker pull --platform linux/amd64 percona/percona-xtradb-cluster-operator:1.18.0
+          docker pull --platform linux/amd64 percona/percona-xtradb-cluster:8.0.42-33.1
+          docker pull --platform linux/amd64 percona/haproxy:2.8.15
+          docker pull --platform linux/amd64 percona/proxysql2:2.7.3
+          docker pull --platform linux/amd64 percona/fluentbit:4.0.1
+          docker pull --platform linux/amd64 percona/pmm-client:3.3.1
+          docker pull --platform linux/amd64 percona/percona-xtrabackup:8.0.35-34.1
+          docker pull --platform linux/amd64 busybox
+          docker save -o percona-amd64.tar \
+              percona/percona-xtradb-cluster-operator:1.18.0 \
+              percona/percona-xtradb-cluster:8.0.42-33.1 \
+              percona/haproxy:2.8.15 \
+              percona/proxysql2:2.7.3 \
+              percona/fluentbit:4.0.1 \
+              percona/pmm-client:3.3.1 \
+              percona/percona-xtrabackup:8.0.35-34.1 \
+              busybox
           
           
          
@@ -78,5 +88,5 @@ jobs:
       with:
         name: images
         path: |
-          monoitor.tar
+          percona-amd64.tar
   
