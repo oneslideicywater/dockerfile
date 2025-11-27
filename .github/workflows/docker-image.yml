@@ -44,10 +44,10 @@ jobs:
           # docker pull minio/minio:RELEASE.2023-12-23T07-19-11Z
           # docker pull --platform linux/arm64  quay.io/prometheus/node-exporter:v1.3.1
           # docker pull --platform linux/amd64 gcr.io/cadvisor/cadvisor:v0.45.0
-          docker pull --platform linux/amd64 redislabs/redisinsight:2.70
+          docker pull --platform linux/arm64 redislabs/redisinsight:2.70
+          docker pull --platform linux/arm64 busybox
 
-          docker save -o redis-insight.tar \
-               redislabs/redisinsight:2.70
+          docker save -o redis-insight-with-busybox.tar redislabs/redisinsight:2.70 busybox
 
 
           
@@ -76,5 +76,5 @@ jobs:
       with:
         name: images
         path: |
-           redis-insight.tar 
+           redis-insight-with-busybox.tar
   
