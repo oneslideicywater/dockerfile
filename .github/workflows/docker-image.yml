@@ -44,13 +44,13 @@ jobs:
           # docker pull minio/minio:RELEASE.2023-12-23T07-19-11Z
           # docker pull --platform linux/arm64  quay.io/prometheus/node-exporter:v1.3.1
           # docker pull --platform linux/amd64 gcr.io/cadvisor/cadvisor:v0.45.0
-          docker pull --platform linux/arm64 mongo-express:1.0.2-18
-          docker tag mongo-express:1.0.2-18 mongo-express:1.0.2-18-arm64 
-          docker pull --platform linux/amd64 mongo-express:1.0.2-18
-          docker tag mongo-express:1.0.2-18 mongo-express:1.0.2-18-amd64 
+          docker pull --platform linux/arm64 dbeaver/cloudbeaver:25.2.5
+          docker tag dbeaver/cloudbeaver:25.2.5 dbeaver/cloudbeaver:25.2.5-arm64
+          docker pull --platform linux/amd64 dbeaver/cloudbeaver:25.2.5
+          docker tag dbeaver/cloudbeaver:25.2.5 dbeaver/cloudbeaver:25.2.5-amd64 
 
-          docker save -o mongo-express-1.0.2-18-arm64.tar mongo-express:1.0.2-18-arm64 
-          docker save -o mongo-express-1.0.2-18-amd64.tar mongo-express:1.0.2-18-amd64 
+          docker save -o cloudbeaver-25.2.5-arm64.tar dbeaver/cloudbeaver:25.2.5-arm64
+          docker save -o cloudbeaver-25.2.5-amd64.tar dbeaver/cloudbeaver:25.2.5-amd64  
 
           
          
@@ -78,5 +78,5 @@ jobs:
       with:
         name: images
         path: |
-           mongo-express-1.0.2-18-arm64.tar 
-           mongo-express-1.0.2-18-amd64.tar
+           cloudbeaver-25.2.5-arm64.tar
+           cloudbeaver-25.2.5-amd64.tar
