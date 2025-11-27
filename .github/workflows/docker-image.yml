@@ -44,24 +44,12 @@ jobs:
           # docker pull minio/minio:RELEASE.2023-12-23T07-19-11Z
           # docker pull --platform linux/arm64  quay.io/prometheus/node-exporter:v1.3.1
           # docker pull --platform linux/amd64 gcr.io/cadvisor/cadvisor:v0.45.0
-          docker pull --platform linux/amd64 percona/percona-xtradb-cluster-operator:1.18.0
-          docker pull --platform linux/amd64 percona/percona-xtradb-cluster:8.0.42-33.1
-          docker pull --platform linux/amd64 percona/haproxy:2.8.15
-          docker pull --platform linux/amd64 percona/proxysql2:2.7.3
-          docker pull --platform linux/amd64 percona/fluentbit:4.0.1
-          docker pull --platform linux/amd64 percona/pmm-client:3.3.1
-          docker pull --platform linux/amd64 percona/percona-xtrabackup:8.0.35-34.1
-          docker pull --platform linux/amd64 busybox
-          docker save -o percona-amd64.tar \
-              percona/percona-xtradb-cluster-operator:1.18.0 \
-              percona/percona-xtradb-cluster:8.0.42-33.1 \
-              percona/haproxy:2.8.15 \
-              percona/proxysql2:2.7.3 \
-              percona/fluentbit:4.0.1 \
-              percona/pmm-client:3.3.1 \
-              percona/percona-xtrabackup:8.0.35-34.1 \
-              busybox
-          
+          docker pull --platform linux/amd64 redislabs/redisinsight:2.70
+
+          docker save -o redis-insight.tar \
+               redislabs/redisinsight:2.70
+
+
           
          
     # - name: Set up QEMU
@@ -88,5 +76,5 @@ jobs:
       with:
         name: images
         path: |
-          percona-amd64.tar
+           redis-insight.tar 
   
