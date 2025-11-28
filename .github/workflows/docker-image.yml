@@ -44,14 +44,16 @@ jobs:
           # docker pull minio/minio:RELEASE.2023-12-23T07-19-11Z
           # docker pull --platform linux/arm64  quay.io/prometheus/node-exporter:v1.3.1
           # docker pull --platform linux/amd64 gcr.io/cadvisor/cadvisor:v0.45.0
-          docker pull --platform linux/arm64 joxit/docker-registry-ui:main-debian
-          docker tag joxit/docker-registry-ui:main-debian joxit/docker-registry-ui:main-debian-arm64
+          docker pull --platform linux/arm64 registry:3.0.0
+          docker pull --platform linux/arm64 registry:2
+          #docker tag joxit/docker-registry-ui:main-debian joxit/docker-registry-ui:main-debian-arm64
           
-          docker pull --platform linux/amd64 joxit/docker-registry-ui:main-debian
-          docker tag joxit/docker-registry-ui:main-debian joxit/docker-registry-ui:main-debian-amd64 
+          #docker pull --platform linux/amd64 joxit/docker-registry-ui:main-debian
+          #docker tag joxit/docker-registry-ui:main-debian joxit/docker-registry-ui:main-debian-amd64 
 
-          docker save -o docker-registry-ui-arm64.tar  joxit/docker-registry-ui:main-debian-arm64
-          docker save -o docker-registry-ui-amd64.tar  joxit/docker-registry-ui:main-debian-amd64 
+          docker save -o registry-3.0.0.tar registry:3.0.0
+          docker save -o registry-2.tar registry:2
+          # docker save -o docker-registry-ui-amd64.tar  joxit/docker-registry-ui:main-debian-amd64 
 
           
          
@@ -79,5 +81,5 @@ jobs:
       with:
         name: images
         path: |
-           docker-registry-ui-amd64.tar
-           docker-registry-ui-arm64.tar
+           registry-3.0.0.tar
+           registry-2.tar
