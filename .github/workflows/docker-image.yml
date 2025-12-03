@@ -49,7 +49,7 @@ jobs:
           docker tag allinurl/goaccess:1.9.4 allinurl/goaccess:1.9.4-amd64 
       
           docker save -o goaccess-1.9.4-arm64.tar allinurl/goaccess:1.9.4-arm64
-          docker save -o goaccess-1.9.4-amd64.tar httpd:2-alpine-amd64
+          docker save -o goaccess-1.9.4-amd64.tar allinurl/goaccess:1.9.4-amd64
         
 
           
