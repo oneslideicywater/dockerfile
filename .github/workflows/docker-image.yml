@@ -42,14 +42,14 @@ jobs:
     - name: Pull images
       run: |
 
-          docker pull --platform linux/arm64 httpd:2-alpine
-          docker tag httpd:2-alpine httpd:2-alpine-arm64
+          docker pull --platform linux/arm64 allinurl/goaccess:1.9.4
+          docker tag allinurl/goaccess:1.9.4 allinurl/goaccess:1.9.4-arm64
 
-          docker pull --platform linux/amd64 httpd:2-alpine
-          docker tag httpd:2-alpine httpd:2-alpine-amd64 
+          docker pull --platform linux/amd64 allinurl/goaccess:1.9.4
+          docker tag allinurl/goaccess:1.9.4 allinurl/goaccess:1.9.4-amd64 
       
-          docker save -o httpd-2-alpine-arm64.tar httpd:2-alpine-arm64
-          docker save -o httpd-2-alpine-amd64.tar httpd:2-alpine-amd64
+          docker save -o goaccess-1.9.4-arm64.tar allinurl/goaccess:1.9.4-arm64
+          docker save -o goaccess-1.9.4-amd64.tar httpd:2-alpine-amd64
         
 
           
@@ -78,5 +78,5 @@ jobs:
       with:
         name: images
         path: |
-          httpd-2-alpine-arm64.tar
-          httpd-2-alpine-amd64.tar
+          goaccess-1.9.4-arm64.tar
+          goaccess-1.9.4-amd64.tar
