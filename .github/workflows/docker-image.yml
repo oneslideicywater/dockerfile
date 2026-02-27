@@ -42,13 +42,13 @@ jobs:
     - name: Pull images
       run: |
 
-          docker pull --platform linux/arm64 redis:7.2
-          docker tag redis:7.2 redis:7.2-arm64
+          docker pull --platform linux/arm64 zookeeper:3.5.10
+          docker tag zookeeper:3.5.10 zookeeper:3.5.10-arm64
 
           #docker pull --platform linux/amd64 allinurl/goaccess:1.9.4
           # docker tag allinurl/goaccess:1.9.4 allinurl/goaccess:1.9.4-amd64 
       
-          docker save -o redis-7.2-arm64.tar redis:7.2-arm64
+          docker save -o zookeeper-3.5.10-arm64.tar zookeeper:3.5.10-arm64
           # docker save -o goaccess-1.9.4-amd64.tar allinurl/goaccess:1.9.4-amd64
         
 
@@ -78,5 +78,5 @@ jobs:
       with:
         name: images
         path: |
-          redis-7.2-arm64.tar
+          zookeeper-3.5.10-arm64
           
