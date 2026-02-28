@@ -78,5 +78,5 @@ jobs:
       with:
         name: images
         path: |
-          zookeeper-3.5.10-arm64
+          zookeeper-3.5.10-arm64.tar
           
