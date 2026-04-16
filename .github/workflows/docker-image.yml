@@ -42,14 +42,14 @@ jobs:
     - name: Pull images
       run: |
 
-          docker pull --platform linux/arm64 mysql:8.0.36
-          docker tag mysql:8.0.36 mysql:8.0.36-arm64
+          docker pull --platform linux/arm64 nginx:1.30.0
+          docker tag nginx:1.30.0 nginx:1.30.0-arm64
 
-          docker pull --platform linux/amd64 mysql:8.0.36
-          docker tag mysql:8.0.36 mysql:8.0.36-amd64 
+          docker pull --platform linux/amd64 nginx:1.30.0
+          docker tag nginx:1.30.0 nginx:1.30.0-amd64 
       
-          docker save -o mysql-8.0.36-arm64.tar mysql:8.0.36-arm64 
-          docker save -o mysql-8.0.36-amd64.tar mysql:8.0.36-amd64 
+          docker save -o nginx-1.30.0-arm64.tar nginx:1.30.0-arm64 
+          docker save -o nginx-1.30.0-amd64.tar nginx:1.30.0-amd64 
         
 
           
@@ -78,6 +78,6 @@ jobs:
       with:
         name: images
         path: |
-          mysql-8.0.36-amd64.tar
-          mysql-8.0.36-arm64.tar
+          nginx-1.30.0-amd64.tar
+          nginx-1.30.0-arm64.tar
           
