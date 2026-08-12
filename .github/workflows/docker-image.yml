@@ -42,14 +42,14 @@ jobs:
     - name: Pull images
       run: |
 
-          docker pull --platform linux/arm64 nginx:1.30.4
-          docker tag nginx:1.30.4 nginx:1.30.4-arm64
+          docker pull --platform linux/arm64 nacos/nacos-server:v3.2.3
+          docker tag nacos/nacos-server:v3.2.3 nacos/nacos-server:v3.2.3-arm64
 
-          docker pull --platform linux/amd64 nginx:1.30.4
-          docker tag nginx:1.30.4 nginx:1.30.4-amd64 
+          docker pull --platform linux/amd64 nacos/nacos-server:v3.2.3
+          docker tag nacos/nacos-server:v3.2.3 nacos/nacos-server:v3.2.3-amd64 
       
-          docker save -o nginx-1.30.4-arm64.tar nginx:1.30.4-arm64 
-          docker save -o nginx-1.30.4-amd64.tar nginx:1.30.4-amd64 
+          docker save -o nacos-server-v3.2.3-arm64.tar nacos/nacos-server:v3.2.3-arm64 
+          docker save -o nacos-server-v3.2.3-amd64.tar nacos/nacos-server:v3.2.3-amd64 
         
 
           
@@ -78,6 +78,6 @@ jobs:
       with:
         name: images
         path: |
-          nginx-1.30.4-arm64.tar
-          nginx-1.30.4-amd64.tar
+          nacos-server-v3.2.3-arm64.tar
+          nacos-server-v3.2.3-amd64.tar
           
